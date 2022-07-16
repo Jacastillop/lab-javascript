@@ -47,7 +47,6 @@ export const viewGame = () => {
 
   gameContainer.append(questionContainer, answerContainer);
   container.appendChild(gameContainer);
-
-  getCountries();
+  
   loadQuestions();
 };
