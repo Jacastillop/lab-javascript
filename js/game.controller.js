@@ -10,6 +10,25 @@ export const loadQuestions = () => {
     });
 };
 
+const countries = () => {
+    return fetch("/data/dbQuestion.json")
+        .then(response => response.json())
+        .then(data => data);
+}
+
+
+const ejemplo = () => {
+    return new Promise(async (resolve, reject) =>{
+        const paises = await countries();      
+        resolve(paises);
+    });
+}
+
+export const getCountries = async () => {
+    const answer = await ejemplo();
+    console.log(answer);
+};
+
 const renderQuestion =  (data, category) => {
   const questions = data.category[category].questions;
   const myQuestion =  getRandomQuestion(questions);
