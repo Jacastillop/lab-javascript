@@ -1,4 +1,4 @@
-{
+export const dbQuestion = {
   "category": [
     {
       "id": 1,

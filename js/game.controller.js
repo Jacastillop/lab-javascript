@@ -1,13 +1,10 @@
 import { Question } from "./Question.js";
+import { dbQuestion} from "../data/dbQuestion.js";
 
 let level = 0;
 
 export const loadQuestions = () => {
-  fetch("/data/dbQuestion.json")
-    .then((response) => response.json())
-    .then((data) => {
-      renderQuestion(data, level);
-    });
+  renderQuestion(dbQuestion, level);
 };
 
 
