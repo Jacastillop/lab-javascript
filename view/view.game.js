@@ -1,4 +1,4 @@
-import { loadQuestions,getCountries } from "../js/game.controller.js";
+import { loadQuestions} from "../js/game.controller.js";
 
 export const viewGame = () => {
   const container = document.querySelector("#container");
@@ -47,6 +47,6 @@ export const viewGame = () => {
 
   gameContainer.append(questionContainer, answerContainer);
   container.appendChild(gameContainer);
-  
+
   loadQuestions();
 };
