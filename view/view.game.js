@@ -1,8 +1,19 @@
-import { loadQuestions} from "../js/game.controller.js";
+import {getRandomQuestion} from "../js/game.controller.js";
 
-export const viewGame = () => {
+
+export const renderQuestion =  (data, category) => {
+  viewGame()
+  const questions = data.category[category].questions;
+  const myQuestion =  getRandomQuestion(questions);
+  const questionContainer = document.querySelector("#question");
+  myQuestion.answersRandomly();
+  questionContainer.innerText = myQuestion.question;  
+  renderAnswer(myQuestion.getAnswers());
+};
+
+
+const viewGame = () => {
   const container = document.querySelector("#container");
-  container.removeChild(container.firstChild);
   
   const gameContainer = document.createElement("div");
   gameContainer.classList.add("game-container");
@@ -47,6 +58,15 @@ export const viewGame = () => {
 
   gameContainer.append(questionContainer, answerContainer);
   container.appendChild(gameContainer);
+};
 
-  loadQuestions();
+const renderAnswer = (answers) => {
+  const answerA = document.querySelector("#answerA");
+  const answerB = document.querySelector("#answerB");
+  const answerC = document.querySelector("#answerC");
+  const answerD = document.querySelector("#answerD");
+  answerA.innerText = "A: "+answers[0].answer;
+  answerB.innerText = "B: "+answers[1].answer;
+  answerC.innerText = "C: "+answers[2].answer;
+  answerD.innerText = "D: "+answers[3].answer;
 };

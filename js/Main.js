@@ -4,5 +4,6 @@ import { Game } from "./Game.js";
 
 
 const myGame = new Game();
-viewCreatePlayer(myGame);
+myGame.startGame();
+//viewCreatePlayer(myGame);
 
